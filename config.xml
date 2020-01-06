@@ -113,4 +113,7 @@
   <edit-config target="NSPhotoLibraryAddUsageDescription" file="*-Info.plist" mode="merge">
     <string>need to photo library access to save pictures there</string>
   </edit-config>
+  <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
+    <string>To scan barcodes</string>
+  </edit-config>
 </widget>
