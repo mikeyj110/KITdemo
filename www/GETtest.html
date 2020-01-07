@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <link rel="stylesheet" href="components/loader.css">
+    <script src="components/loader.js"></script>
+    <script>
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://kitdemo-79bb.restdb.io/rest/kit-dealers",
+        "method": "GET",
+        "headers": {
+          "content-type": "application/json",
+          "x-apikey": "5e13ee36b68f0802dd3e606f",
+          "cache-control": "no-cache"
+        }
+      }
+
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+        document.write("<strong>length:</strong> " + response.length + "<br><br>");
+        document.write(response);
+      });
+    </script>
+</head>
+<body>
+    <!-- TODO: Please edit here -->
+</body>
+</html>
