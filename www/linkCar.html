@@ -3,8 +3,6 @@
 <head>
   <title>BarcodeReader</title>
 
-  <!-- https://kitdemo-79bb.restdb.io/home/db/kitdemo-79bb -->
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
@@ -19,8 +17,22 @@
 <body>
   <div class="body">
     <a href="index.html"> <h1> KIT DEMO - Admin</h1> </a>
-    <input type="button" onClick ="window.location='linkCar.html'" value ="Link Car" />
-    <input type="button" onClick ="window.location='newDealer.html'" value ="New Dealer" />
+    <span class="label">Select Dealer</span>
+    <select id="dealer" name="dealer">
+      <option value="WVDealer">WV Dealer</option>
+      <option value="dealer2">Dealer 2</option>
+      <option value="dealer3">Dealer 3</option>
+    </select>
+    <br/>
+    <input type="button" onClick ="scanBarcode()" value ="Scan VIN" />
+    <br/>
+    <span class="label">VIN:</span>
+    <input  id="vin" type="text" name="vin" />
+    <br/>
+    <span class="label">Assign to:</span>
+    <input id="assignment" type="text" name="assignment" />
+    <br/>
+    <input type="button" onClick ="saveResults()" value ="Submit" />
   </div>
 </body>
 
