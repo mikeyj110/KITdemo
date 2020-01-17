@@ -1,41 +1,5 @@
 var apikey = "5e13ee36b68f0802dd3e606f"; // TODO: INSERT YOUR CORS API KEY HERE OR add formapikey to settings
 
-var ajaxPostSettings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://kitdemo-79bb.restdb.io/rest/kit-dealers",
-  "method": "POST",
-  "headers": {
-    "x-apikey": apikey,
-    "content-type": "application/json"
-  },
-  "processData": false
-}
-
-var ajaxGetSettings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://kitdemo-79bb.restdb.io/rest/kit-dealers",
-  "method": "GET",
-  "headers": {
-    "x-apikey": apikey,
-    "content-type": "application/json"
-  },
-  "processData": false
-}
-
-var ajaxPostSettingsAttachments = {
-    "async": true,
-    "url": "https://kitdemo-79bb.restdb.io/media",
-    "method": "POST",
-    "contentType": false,
-    "headers": {
-      "x-apikey": apikey
-    },
-    "cache": false,
-    "processData": false
-  }
-
 $(function () {
 
   // put your own error messages and/or message translation logic here
@@ -57,12 +21,7 @@ $(function () {
 
   var successMessage = "Thank you!";
 
-  // enable javascript datetimepicker unless supported
-  // Docs and settings: http://xdsoft.net/jqplugins/datetimepicker/
-
   $.datetimepicker.setLocale('en');
-
-  // if missing support for datetime, then use jquery.datetimepicker
 
   if (!Modernizr.inputtypes.datetime){
       $("input[data-type=date]").datetimepicker({timepicker:false,format:"Y/m/d"}).attr("type","text");
@@ -70,16 +29,16 @@ $(function () {
       $("input[data-type=time]").datetimepicker({datepicker:false,format:"H:i",value:"12:00"}).attr("type","text");
   }
 
-  $("#kit-dealers-form input[data-type=file], #kit-dealers-form input[data-type=image]").on("change",function(){
+  $("#kit-codes-form input[data-type=file], #kit-codes-form input[data-type=image]").on("change",function(){
     $(this).data("uploadedfiles",[]);    
   });
-    
+  
   if (!apikey) alert("Please insert a CORS API key");
 
   var ajaxSettings = {
     "async": true,
     "crossDomain": true,
-    "url": "https://kitdemo-79bb.restdb.io/rest/kit-dealers",
+    "url": "https://kitdemo-79bb.restdb.io/rest/kit-codes",
     "method": "POST",
     "headers": {
       "x-apikey": apikey,
@@ -88,21 +47,8 @@ $(function () {
     "processData": false
   }
 
-  var ajaxSettingsAttachments = {
-     "async": true,
-     "url": "https://kitdemo-79bb.restdb.io/media",
-     "method": "POST",
-     "contentType": false,
-     "headers": {
-       "x-apikey": apikey
-     },
-     "cache": false,
-     "processData": false
-   }
-
   var populateLookupSelect = function(options){
     var collname = options.collection;
-    var apikey = options.apikey;
     var fieldname = options.fieldname;
     var selectfield = options.selectfield;
     var settings = {
@@ -126,77 +72,13 @@ $(function () {
   });
 }
 
-  // remember to add web api key for this collection too (or use a universal /** key)
-  populateLookupSelect({collection:"kit-codes",apikey:"{{settings.formapikey-kit-codes}}",fieldname:"Kit-Codes", selectfield:"kit-code"});
-
-  function uploadAttachment(item){
-    var deferred = $.Deferred();
-    var datatype = $(item).attr("data-type");
-    var element_name = $(item).attr("name");
-    var formData = new FormData();
-    var files = $(item)[0].files;
-    var totalsize = 0;
-    var files_to_upload = []
-    _.each(files,function(file){
-      // ignore non-images
-      if(datatype==="image" && !file.type.match('image.*')){
-        return;
-      }else{
-        files_to_upload.push(file);
-        totalsize += file.size;        
-      }
-    });
-
-    // check max upload file size for development plan
-    if (totalsize<=1000000){
-      _.each(files_to_upload,function(file){
-        formData.append(element_name, file, file.name);
-      });
-      var asa = _.clone(ajaxSettingsAttachments);
-      asa.xhr = function() {
-        var xhr = new window.XMLHttpRequest();
-        xhr.upload.addEventListener("progress", function(evt) {
-          if (evt.lengthComputable) {
-            var percentComplete = evt.loaded / evt.total;
-            percentComplete = parseInt(percentComplete * 100)+"%";
-            $("#"+element_name+"_progress")
-            .css("width",percentComplete)
-          }
-        }, false);
-        return xhr;
-      }
-      asa.data = formData;
-      var uploadedbefore = $(item).data("uploaded");
-      if (!uploadedbefore){
-        $("#"+element_name+"_progress").parent().removeClass("hidden");
-        $("#btn-submit").button("loading");
-        $.ajax(asa)
-        .success(function(data){
-          var result = data.ids || [];
-          var successObj = {};
-          successObj[element_name] = result;
-          $(item).data("uploaded",result);
-          deferred.resolve(successObj);       
-        })
-        .fail(function(){
-          deferred.reject({field: element_name, error: errorMessages.UPLOADERROR});
-        });
-      }else{
-        var obj = {};
-        obj[element_name]=uploadedbefore;
-        deferred.resolve(obj);
-      }
-    }else{
-      deferred.reject({field: element_name, error: errorMessages.FILESIZE});
-    }
-    return deferred.promise();
-  }
+  populateLookupSelect({collection:"kit-dealers",fieldname:"dealer", selectfield:"dealer-id"});
 
   function postForm() {
 
     // clear errors
-    $("#kit-dealers-form .has-error").removeClass("has-error");
-    $("#kit-dealers-form .help-block").remove();
+    $("#kit-codes-form .has-error").removeClass("has-error");
+    $("#kit-codes-form .help-block").remove();
 
     $("#btn-submit").button("loading");
 
@@ -232,12 +114,12 @@ $(function () {
 
 
  // get the form data
-    var formObj = $("#kit-dealers-form").serializeObject();
+    var formObj = $("#kit-codes-form").serializeObject();
 
     // get attachments from inputs
     var attachments = [];
 
-    $("#kit-dealers-form input[data-type=file], #kit-dealers-form input[data-type=image]").each(function(input){
+    $("#kit-codes-form input[data-type=file], #kit-codes-form input[data-type=image]").each(function(input){
       var files = $(this)[0].files;
       if(files && files.length>0){
         attachments.push($(this));
@@ -264,7 +146,7 @@ $(function () {
         $.ajax(ajaxSettings)
         .done(function (response) {
           // replaces form with a thank you message, please replace with your own functionality
-          $("#kit-dealers-form").replaceWith("<div class='thank-you'>"+successMessage+"</div>");
+          $("#kit-codes-form").replaceWith("<div class='thank-you'>"+successMessage+"</div>");
         })
         .fail(function (response) {
           $("#btn-submit").button("reset");
@@ -302,13 +184,9 @@ $(function () {
       });
   };
 
-  $("#kit-dealers-form").submit(function (event) {
+  $("#kit-codes-form").submit(function (event) {
         postForm();
         event.preventDefault();
         return false;
     });
 });
-
-function getDealerList() {
-  console.log("getDealerList");
-};

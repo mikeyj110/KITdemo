@@ -22,11 +22,23 @@
       $.ajax(settings).done(function (response) {
         console.log(response);
         document.write("<strong>length:</strong> " + response.length + "<br><br>");
-        document.write(response);
+        if ( response.length > 0 ) {
+          response.foreach((obj)=> {
+            console.log(obj);
+            document.write(obj + "<br>");
+          });
+        };
       });
+
+      	$.getJSON('https://rdb-simpledb.restdb.io/rest/contact?max=5&sort=_id&dir=-1', function(data){
+				$.each(data, function(key, item){
+					console.log(item);
+					$('#content').append(makeHtmlItem(item));
+				});
+			});
     </script>
 </head>
-<body>
+<body id="content">
     <!-- TODO: Please edit here -->
 </body>
 </html>

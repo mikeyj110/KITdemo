@@ -19,49 +19,25 @@
   <script src="https://kitdemo-79bb.restdb.io/assets/js/jquery-serialize-object.min.js"></script>
   <script src="https://kitdemo-79bb.restdb.io/assets/js/jquery.datetimepicker.full.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.1/lodash.min.js"></script>
-  <script src="js/dealer.js"></script>
+  <script src="js/codes.js"></script>
   <script src="js/app.js"></script>
-
-</head>
 <body>
-  <a href="index.html"><h1> KIT DEMO - Admin</h1></a>
-  <form role="form" id="kit-dealers-form">
-<div class="form-group">
-  <label>Dealer id: </label><input class="form-control" name="dealer-id" data-type="text" type="text">
-</div>
-<div class="form-group">
-  <label>Dealer name: </label><input class="form-control" name="dealer-name" data-type="text" type="text">
-</div>
-<div class="form-group">
-  <label>Dealer link: </label><input class="form-control" name="dealer-link" data-type="text" type="text">
-</div>
-<div class="form-group">
-  <label>Dealer pass: </label><input class="form-control" name="dealer-pass" data-type="text" type="text">
-</div>
-<div class="form-group">
-  <label>Dealer email: </label><input class="form-control" name="dealer-email" data-type="text" type="text">
-</div>
-<div class="form-group">
-  <label>Kit codes:</label>
-  <select id="Kit-Codes" class="form-control"  name="Kit-Codes[]" data-type="kit-codes"  multiple>
-  </select>
-</div>
-<div class="form-group">
-  <label>Permission level:</label>
-    <select class="form-control"  name="permission-level" data-type="option"  >
-      <option value="Dealer">Dealer</option>
-      <option value="Admin">Admin</option>  </select>
-</div>
-
+<form role="form" id="kit-codes-form">
+  <div class="form-group">
+   <label>Kit code: </label><input class="form-control" name="kit-code" data-type="text" type="text">
+  </div>
+  <div class="form-group">
+    <label>Vin: </label><input class="form-control" name="vin" data-type="text" type="text">
+  </div>
+  <div class="form-group">
+    <label>Dealer:</label>
+    <select id="dealer" class="form-control"  name="dealer" data-type="kit-dealers"  >
+    </select>
+  </div>
   <div id="fg-errors" class="form-group">
   </div>
-  <button class="btn btn-primary btn-lg" id="btn-submit" type="submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Submitting...">Submit</button></form>
+  <button class="btn btn-primary btn-lg" id="btn-submit" type="submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Submitting...">Submit</button>
+</form>
 
-  <br/>
-
-  <!--input class="btn btn-primary btn-lg" type="button" onClick ="getDealerList()" value ="Get list" />
-
-  <div id="dealer-list">
-  </div-->
 </body>
 </html>
