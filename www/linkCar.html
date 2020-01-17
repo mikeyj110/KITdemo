@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>BarcodeReader</title>
+  <title>KIT - Assign Code</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -9,30 +9,43 @@
   <script src="components/loader.js"></script>
   <link rel="stylesheet" href="components/loader.css">
   <link rel="stylesheet" href="css/styles.css">
+
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+  <script src="https://kitdemo-79bb.restdb.io/assets/js/jquery-serialize-object.min.js"></script>
+  <script src="https://kitdemo-79bb.restdb.io/assets/js/jquery.datetimepicker.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.1/lodash.min.js"></script>
+
   <script src="js/cssua.min.js"></script>
   <script src="js/app.js"></script>
   <!--script src="js/scanBarcode.js"></script-->
+  <script src="js/codes.js"></script>
+
 </head>
 
 <body>
   <div class="body">
-    <a href="index.html"> <h1> KIT DEMO - Admin</h1> </a>
-    <span class="label">Select Dealer</span>
-    <select id="dealer" name="dealer">
-      <option value="WVDealer">WV Dealer</option>
-      <option value="dealer2">Dealer 2</option>
-      <option value="dealer3">Dealer 3</option>
-    </select>
-    <br/>
-    <input type="button" onClick ="scanBarcode()" value ="Scan VIN" />
-    <br/>
-    <span class="label">VIN:</span>
-    <input  id="vin" type="text" name="vin" />
-    <br/>
-    <span class="label">Assign to:</span>
-    <input id="assignment" type="text" name="assignment" />
-    <br/>
-    <input type="button" onClick ="saveResults()" value ="Submit" />
+    <a href="index.html"><h1>KIT DEMO - Admin</h1></a>
+
+    <form role="form" id="kit-codes-form">
+      <span class="label">Dealer:</span>
+      <select id="dealer" class="form-control"  name="dealer" data-type="kit-dealers">
+      </select>
+      <br/ >
+      <span class="label">VIN:</span>
+      <input id="vin" class="form-control" name="vin" data-type="text" type="text">
+      <br/>
+      <input type="button" onClick ="scanBarcode()" value ="Scan VIN" />
+      <br/>
+      <span class="label">Assign to:</span>
+      <label>Kit code: </label>
+      <input id="kit-code" class="form-control" name="kit-code" data-type="text" type="text">
+      <br/>
+      <button class="btn btn-primary btn-lg" id="btn-submit" type="submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Submitting...">Submit</button>
+      <!--input type="button" onClick ="saveResults()" value ="Submit" /-->
+      <div id="fg-errors" class="form-group"></div>
+    </form>
   </div>
 </body>
 

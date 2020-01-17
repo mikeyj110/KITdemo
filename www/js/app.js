@@ -32,9 +32,9 @@ function scanBarcode() {
 function saveResults() {
   var dealer = document.getElementById("dealer").value;
   var vin = document.getElementById("vin").value;
-  var assignment = document.getElementById("assignment").value;
+  var kitCode = document.getElementById("kit-code").value;
   var message = "";
-  if(!dealer || !vin || !assignment){
+  if(!dealer || !vin || !kitCode){
     var message = "Please fill out all data";
     navigator.notification.alert(
       message,          // message
@@ -44,9 +44,9 @@ function saveResults() {
     );
   }
   else {
-    console.log(vin + " " + assignment);
-  //  alert("VIN " + vin + " has been added to " + dealer + "using code " + assignment);
-    var message = "VIN " + vin + " has been added to " + dealer + " using code " + assignment;
+    console.log(vin + " " + kitCode);
+  //  alert("VIN " + vin + " has been added to " + dealer + "using code " + kitCode);
+    var message = "VIN " + vin + " has been added to " + dealer + " using code " + kitCode;
     var alertCallback = "Success";
     navigator.notification.alert(
       message,          // message

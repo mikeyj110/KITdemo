@@ -6,39 +6,12 @@
     <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
     <link rel="stylesheet" href="components/loader.css">
     <script src="components/loader.js"></script>
-    <script>
-      var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://kitdemo-79bb.restdb.io/rest/kit-dealers",
-        "method": "GET",
-        "headers": {
-          "content-type": "application/json",
-          "x-apikey": "5e13ee36b68f0802dd3e606f",
-          "cache-control": "no-cache"
-        }
-      }
-
-      $.ajax(settings).done(function (response) {
-        console.log(response);
-        document.write("<strong>length:</strong> " + response.length + "<br><br>");
-        if ( response.length > 0 ) {
-          response.foreach((obj)=> {
-            console.log(obj);
-            document.write(obj + "<br>");
-          });
-        };
-      });
-
-      	$.getJSON('https://rdb-simpledb.restdb.io/rest/contact?max=5&sort=_id&dir=-1', function(data){
-				$.each(data, function(key, item){
-					console.log(item);
-					$('#content').append(makeHtmlItem(item));
-				});
-			});
-    </script>
+    <script src="js/getData.js"></script>
 </head>
-<body id="content">
-    <!-- TODO: Please edit here -->
+<body>
+  <a onclick="window.location='index.html'"> <h1> KIT DEMO - Admin</h1> </a>
+  <div id="content">
+      <!-- TODO: Please edit here -->
+  </div>
 </body>
 </html>
