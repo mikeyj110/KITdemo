@@ -13,6 +13,7 @@ function getData() {
   };
 
   $.ajax(settings).done(function (response) {
+    console.log(response["dealer-name"] + "hello")
     if (response.length > 0) {
       $.each( response, function( key, value ) {
         console.log(value["dealer-name"] + ": " + value["permission-level"]);
