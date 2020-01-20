@@ -13,23 +13,17 @@ function getData() {
   };
 
   $.ajax(settings).done(function (response) {
-    // console.log(response);
     if (response.length > 0) {
       $.each( response, function( key, value ) {
         console.log(value["dealer-name"] + ": " + value["permission-level"]);
-        document.getElementById("content").innerHTML += "<span>" + value["dealer-name"] + "</span><br>";
+        document.getElementById("content").innerHTML += "<span>" + value["dealer-name"] + ": " + value["permission-level"] + "</span><br>";
       });
-
 
     } else {
     console.log("No results");
     };
   }
 
-    // $.each(response, function(key, item){
-    // console.log(key + ': ' + item);
-    // document.getElementById("content").innerHTML += "<span>" + item + "</span><br>";
-    // });}
 );
 }
 
