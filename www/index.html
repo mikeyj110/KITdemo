@@ -11,7 +11,9 @@
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/cssua.min.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/loginCheck.js"></script>
   <script src="js/setUser.js"></script>
+
 </head>
 
 <body>
@@ -19,9 +21,19 @@
     <span id="user"></span>
     <a onclick="window.location='index.html'"> <h1> KIT DEMO</h1> </a>
     <input type="button" onClick ="window.location='menu.html'" value ="Dealer Tools" />
-    <input class="adminOnly" type="button" onClick ="window.location='adminTools.html'" value ="Admin Tools" />
+    <div id="adminOnly">
+      <input type="button" onClick ="window.location='adminTools.html'" value ="Admin Tools" />
+    </div>
+
   </div>
 
 </body>
+
+<script>
+  var adminOnly = document.getElementById("adminOnly");
+  if (localStorage.getItem("accountLevel") !== "Admin") {
+    adminOnly.classList.add("none");
+  } else {};
+</script>
 
 </html>

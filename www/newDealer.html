@@ -2,63 +2,62 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
 
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN" crossorigin="anonymous">
-  <link href="https://kitdemo-79bb.restdb.io/assets/css/jquery.datetimepicker.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/restdb.css">
   <link rel="stylesheet" href="components/loader.css">
   <link rel="stylesheet" href="css/styles.css">
 
   <script src="js/baseKey.js"></script>
-  <script src="components/loader.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
   <script src="https://kitdemo-79bb.restdb.io/assets/js/jquery-serialize-object.min.js"></script>
   <script src="https://kitdemo-79bb.restdb.io/assets/js/jquery.datetimepicker.full.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.1/lodash.min.js"></script>
   <script src="js/dealer.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/setUser.js"></script>
 
 </head>
 <body>
-  <a onclick="window.location='./index.html'"> <h1> KIT DEMO - List Users</h1> </a>
+<div class="body">
+  <span id="user"></span>
+  <a onclick="window.location='index.html'"> <h1> KIT DEMO</h1> </a>
   <form role="form" id="kit-dealers-form">
-<div class="form-group">
-  <label>Dealer id: </label><input class="form-control" name="dealer-id" data-type="text" type="text">
-</div>
-<div class="form-group">
-  <label>Dealer name: </label><input class="form-control" name="dealer-name" data-type="text" type="text">
-</div>
-<div class="form-group">
-  <label>Dealer link: </label><input class="form-control" name="dealer-link" data-type="text" type="text">
-</div>
-<div class="form-group">
-  <label>Dealer pass: </label><input class="form-control" name="dealer-pass" data-type="text" type="text">
-</div>
-<div class="form-group">
-  <label>Dealer email: </label><input class="form-control" name="dealer-email" data-type="text" type="text">
-</div>
-<div class="form-group">
-  <label>Kit codes:</label>
-  <select id="Kit-Codes" class="form-control"  name="Kit-Codes[]" data-type="kit-codes"  multiple>
-  </select>
-</div>
-<div class="form-group">
-  <label>Permission level:</label>
+  <div class="form-group">
+    <label>Dealer ID: </label><input class="form-control" name="dealer-id" data-type="text" type="text">
+  </div>
+  <div class="form-group">
+    <label>Dealer name: </label><input class="form-control" name="dealer-name" data-type="text" type="text">
+  </div>
+  <div class="form-group">
+    <label>Dealer link: </label><input class="form-control" name="dealer-link" data-type="text" type="text">
+  </div>
+  <div class="form-group">
+    <label>Dealer pass: </label><input class="form-control" name="dealer-pass" data-type="text" type="text">
+  </div>
+  <div class="form-group">
+    <label>Dealer email: </label><input class="form-control" name="dealer-email" data-type="text" type="text">
+  </div>
+  <div class="form-group none">
+    <label>Kit codes:</label>
+    <select id="Kit-Codes" class="form-control"  name="Kit-Codes[]" data-type="kit-codes"  multiple>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Permission level:</label>
     <select class="form-control"  name="permission-level" data-type="option"  >
       <option value="Dealer">Dealer</option>
-      <option value="Admin">Admin</option>  </select>
-</div>
-
+      <option value="Admin">Admin</option>
+    </select>
+  </div>
   <div id="fg-errors" class="form-group">
   </div>
   <button class="btn btn-primary btn-lg" id="btn-submit" type="submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Submitting...">Submit</button></form>
-
-  <br/>
+</div>
 
 </body>
 </html>

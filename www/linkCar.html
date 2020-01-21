@@ -1,12 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>KIT - Assign Code</title>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
   <script src="components/loader.js"></script>
+
   <link rel="stylesheet" href="components/loader.css">
   <link rel="stylesheet" href="css/styles.css">
 
@@ -19,23 +18,23 @@
 
   <script src="js/cssua.min.js"></script>
   <script src="js/app.js"></script>
-  <!--script src="js/scanBarcode.js"></script-->
   <script src="js/codes.js"></script>
-
+  <script src="js/setUser.js"></script>
 </head>
 
 <body>
   <div class="body">
+    <span id="user"></span>
     <a onclick="window.location='index.html'"> <h1> KIT DEMO - Link Car</h1> </a>
-
     <form role="form" id="kit-codes-form">
-      <span class="label">Dealer:</span>
-      <select id="dealer" class="form-control"  name="dealer" data-type="kit-dealers">
-      </select>
-      <br/ >
+      <span class="none">
+        <label>Dealer:</label>
+        <select id="dealer" class="form-control"  name="dealer" data-type="kit-dealers">
+        </select>
+        <br/>
+      </span>
       <span class="label">VIN:</span>
       <input id="vin" class="form-control" name="vin" data-type="text" type="text">
-      <br/>
       <input type="button" onClick ="scanBarcode()" value ="Scan VIN" />
       <br/>
       <span class="label">Assign to:</span>
@@ -48,5 +47,10 @@
     </form>
   </div>
 </body>
+
+<script>
+  document.getElementById("dealer").value = localStorage.getItem("accountID");
+  console.log(localStorage.getItem("accountID"));
+</script>
 
 </html>

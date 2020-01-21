@@ -8,10 +8,15 @@ function  logOut() {
     localStorage.setItem("accountLink", null);
     localStorage.setItem("accountEmail", null);
     document.getElementById("user").innerHTML = localStorage.getItem("account");
+    window.location="login.html";
+};
+
+function loginPage(){
+  window.location="login.html";
 };
 
 function retrieve() {
-  document.getElementById("user").innerHTML = localStorage.getItem("account");
+  document.getElementById("user").innerHTML = "<a onclick='loginPage()'>" +localStorage.getItem("account") + "</a>";
 };
 
 function store() {
@@ -43,22 +48,19 @@ function getUser() {
   };
 
   $.ajax(settings).done(function (response) {
-    if (response.length = 1) {
+    console.log(response.length);
+    if (response.length == 1) {
       $.each( response, function( key, value ) {
-        console.log(value["dealer-name"]);
-        if (typeof(Storage) !== "undefined") {
-          localStorage.setItem("account", value["dealer-name"]);
-          localStorage.setItem("accountID", value["dealer-id"]);
-          localStorage.setItem("accountLevel", value["permission-level"]);
-          localStorage.setItem("accountLink", value["dealer-link"]);
-          localStorage.setItem("accountEmail", value["dealer-email"]);
-          document.getElementById("user").innerHTML = localStorage.getItem("account");
-        } else {
-          document.getElementById("user").innerHTML = "Sorry, your device does not support Storage...";
-        }
+        localStorage.setItem("account", value["dealer-name"]);
+        localStorage.setItem("accountID", value["dealer-id"]);
+        localStorage.setItem("accountLevel", value["permission-level"]);
+        localStorage.setItem("accountLink", value["dealer-link"]);
+        localStorage.setItem("accountEmail", value["dealer-email"]);
+        document.getElementById("user").innerHTML = localStorage.getItem("account");
       });
+      window.location="index.html";
     } else {
-      document.getElementById("content").innerHTML = "Login failed. Try Again. Remember, both usernames and passwords are case sensitive."; 
+      document.getElementById("loginError").innerHTML = "Login failed, try Again. Remember, usernames and passwords are case sensitive."; 
     };
   });
 };

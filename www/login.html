@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>KIT Demo</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/baseKey.js"></script>
+  <script src="js/cssua.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/setUser.js"></script>
+
+</head>
+
+<body>
+  <div class="body">
+    <span id="user"></span>
+    <a onclick="window.location='index.html'"> <h1>KIT DEMO</h1></a>
+    <div id="loggedOut">
+      <h2>Log In</h2>
+      <label>Dealer ID</label>
+      <input id="dealerID" class="form-control" name="dealerID" data-type="text" type="text"></input>
+      <label>Password</label>
+      <input id="dealerPass" class="form-control" name="dealerPass" data-type="text" type="password"></input>
+      <button onclick="getUser()">Log In</button>
+      <span id="loginError"></span>
+    </div>
+    <div id="loggedIn">
+      <h2>User Info</h2>
+      <label>Name</label>
+      <input id="dealerName" disabled="true" class="form-control" name="dealerID" type="text"></input>
+      <label>Dealer Link</label>
+      <input id="dealerLink" disabled="true" class="form-control" name="dealerID" type="text"></input>
+      <label>Email</label>
+      <input id="dealerEmail" disabled="true" class="form-control" name="dealerID" type="text"></input>
+      <button onclick="logOut()">Log Out</button>
+    </div>
+    
+
+  </div>
+</div>
+</body>
+
+<script>
+  var loggedIn = document.getElementById("loggedIn");
+  var user = document.getElementById("user");
+  var loggedOut = document.getElementById("loggedOut");
+  if (localStorage.getItem("account") == "null") {
+    user.classList.add("none");
+    loggedIn.classList.add("none");
+  } else {
+    loggedOut.classList.add("none");
+  }
+
+  document.getElementById("dealerName").value = localStorage.getItem("account");
+  document.getElementById("dealerLink").value = localStorage.getItem("accountLink");
+  document.getElementById("dealerEmail").value = localStorage.getItem("accountEmail");
+
+</script>
+
+</html>
