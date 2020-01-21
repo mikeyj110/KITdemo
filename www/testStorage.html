@@ -9,6 +9,7 @@
   <script src="components/loader.js"></script>
   <link rel="stylesheet" href="components/loader.css">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/baseKey.js"></script>
   <script src="js/cssua.min.js"></script>
   <script src="js/app.js"></script>
   <script src="js/setUser.js"></script>
@@ -18,9 +19,13 @@
   <div class="body">
     <span id="user"></span>
     <a onclick="window.location='index.html'"> <h1> KIT DEMO - Storage Test</h1> </a>
+    <label>Dealer ID</label>
     <input id="dealerID" class="form-control" name="dealerID" data-type="text" type="text"></input>
-    <button onclick="store()">Log In</button>
+    <label>Password</label>
+    <input id="dealerPass" class="form-control" name="dealerPass" data-type="text" type="password"></input>
+    <button onclick="getUser()">Log In</button>
     <button onclick="logOut()">Log Out</button>
+    <div id="content"></div>
 
   </div>
 </body>

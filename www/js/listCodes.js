@@ -1,5 +1,5 @@
 function getData() {
-  var query = "?q{'dealer-name': 'VW TriStar'}";
+  var query = '?q={"dealer":{"$elemMatch":{"dealer-name":"' + localStorage.getItem("account") + '"}}}';
   var settings = {
     "async": true,
     "crossDomain": true,
