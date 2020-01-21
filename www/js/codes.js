@@ -72,9 +72,11 @@ $(function () {
   });
 }
 
-  populateLookupSelect({collection:"kit-dealers",fieldname:"dealer", selectfield:"dealer-id"});
+  populateLookupSelect({collection:"kit-dealers",fieldname:"dealer", selectfield:"dealer-name"});
 
   function postForm() {
+    // set Dealer ID
+    document.getElementById("dealer").value = localStorage.getItem("accountBaseID");
 
     // clear errors
     $("#kit-codes-form .has-error").removeClass("has-error");

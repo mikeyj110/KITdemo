@@ -56,6 +56,7 @@ function getUser() {
         localStorage.setItem("accountLevel", value["permission-level"]);
         localStorage.setItem("accountLink", value["dealer-link"]);
         localStorage.setItem("accountEmail", value["dealer-email"]);
+        localStorage.setItem("accountBaseID", value["_id"]);
         document.getElementById("user").innerHTML = localStorage.getItem("account");
       });
       window.location="index.html";
