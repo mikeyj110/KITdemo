@@ -11,7 +11,8 @@
             "cordova-plugin-camera": {},
             "phonegap-plugin-barcodescanner": {},
             "cordova-plugin-dialogs": {},
-            "monaca-plugin-backend": {}
+            "monaca-plugin-backend": {},
+            "cordova-plugin-inappbrowser": {}
         }
     },
     "dependencies": {
@@ -22,7 +23,8 @@
         "monaca-plugin-monaca-core": "3.3.0",
         "phonegap-plugin-barcodescanner": "8.1.0",
         "cordova-plugin-dialogs": "2.0.1",
-        "monaca-plugin-backend": "2.1.0"
+        "monaca-plugin-backend": "2.1.0",
+        "cordova-plugin-inappbrowser": "3.1.0"
     },
     "scripts": {
         "monaca:preview": "npm run dev",
