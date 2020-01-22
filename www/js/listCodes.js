@@ -17,8 +17,10 @@ function getData() {
     if (response.length > 0) {
       console.log(response);
       $.each( response, function( key, value ) {
-        document.getElementById("content").innerHTML += "<li>" + "KIT Code: " + value["kit-code"] + " | VIN: " + value.vin + "</li><br>";
-        console.log(value.dealer[0]["dealer-name"]);
+        var dealerLink = value.dealer[0]["dealer-link"] + value["kit-code"];
+        console.log(dealerLink);
+        document.getElementById("content").innerHTML += "<a href='" + dealerLink + "'> <li>" + "KIT Code: " + value["kit-code"] + " | VIN: " + value.vin + "</li></a><br>";
+        // console.log(value.dealer[0]["dealer-name"]);
       });
     } else {
       document.getElementById("content").innerHTML += noResults; 

@@ -2,12 +2,13 @@ var userActive = "active";
 var userInactive = "inactive";
 
 function  logOut() {
-    localStorage.setItem("account", null);
-    localStorage.setItem("accountID", null);
-    localStorage.setItem("accountLevel", null);
-    localStorage.setItem("accountLink", null);
-    localStorage.setItem("accountEmail", null);
-    document.getElementById("user").innerHTML = localStorage.getItem("account");
+    localStorage.setItem("account", "null");
+    localStorage.setItem("accountID", "null");
+    localStorage.setItem("accountLevel", "null");
+    localStorage.setItem("accountLink", "null");
+    localStorage.setItem("accountEmail", "null");
+    localStorage.setItem("accountPass", "null");
+    //document.getElementById("user").innerHTML = localStorage.getItem("account");
     window.location="login.html";
 };
 
@@ -22,7 +23,6 @@ function retrieve() {
 function store() {
   if (typeof(Storage) !== "undefined") {
     // Store
-    localStorage.setItem("account", null);
     localStorage.setItem("account", userActive);
     // Retrieve
     document.getElementById("user").innerHTML = localStorage.getItem("account");
@@ -34,7 +34,7 @@ function store() {
 function getUser() {
   var kitUser = document.getElementById("dealerID").value;
   var kitPass = document.getElementById("dealerPass").value;
-  var query = '?q={"dealer-id":"' + kitUser + '","dealer-pass":"'+ kitPass +'"}';
+  var query = '?q={"dealer-id":"' + kitUser + '","dealer-pass":"' + kitPass +'"}';
   var settings = {
     "async": true,
     "crossDomain": true,
@@ -46,12 +46,14 @@ function getUser() {
       "cache-control": "no-cache"
     }
   };
-
-  $.ajax(settings).done(function (response) {
-    console.log(response.length);
+  console.log(settings);
+  $.ajax(settings).done(function(response) {
+    // console.log(response);
+    // console.log(response.length);
     if (response.length == 1) {
       $.each( response, function( key, value ) {
         localStorage.setItem("account", value["dealer-name"]);
+        localStorage.setItem("accountPass", value["dealer-pass"]);
         localStorage.setItem("accountID", value["dealer-id"]);
         localStorage.setItem("accountLevel", value["permission-level"]);
         localStorage.setItem("accountLink", value["dealer-link"]);
