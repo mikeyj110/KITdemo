@@ -17,7 +17,7 @@ function loginPage(){
 };
 
 function retrieve() {
-  document.getElementById("user").innerHTML = "<a onclick='loginPage()'>" +localStorage.getItem("account") + "</a>";
+  document.getElementById("user").innerHTML = localStorage.getItem("account");
 };
 
 function store() {

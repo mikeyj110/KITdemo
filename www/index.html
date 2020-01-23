@@ -19,14 +19,24 @@
 
 <body>
   <div class="body">
-    <span id="user"></span>
-    <a onclick="window.location='index.html'"> <h1> KIT DEMO</h1> </a>
-    <input type="button" onClick ="window.location='menu.html'" value ="Dealer Tools" />
-    <div id="adminOnly">
-      <input type="button" onClick ="window.location='adminTools.html'" value ="Admin Tools" />
+    <div class="header">
+      <span id="user"></span>
     </div>
-    <input type="button" onClick ="window.location='contact.html'" value ="Contact Us" />
-
+    <div class="header2">
+      <h1> KIT DEMO</h1>
+    </div>
+    <div class="container">
+      <div id="adminOnly">
+        <input type="button" onClick ="window.location='adminTools.html'" value ="Admin Tools" />
+      </div>
+      <br><br><br><br><br>
+      <span class="center">KIT Home</span>      
+    </div>
+    <div class="footer-menu">
+      <div class="menu-button" id="dealer-btn" onClick ="window.location='menu.html'"></div>
+      <div class="menu-button" id="home-btn" onclick="window.location='index.html'"></div>
+      <div class="menu-button" id="user-btn" onclick="window.location='login.html'"></div>
+    </div>
   </div>
 
 </body>

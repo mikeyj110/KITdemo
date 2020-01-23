@@ -24,27 +24,37 @@
 
 <body>
   <div class="body">
-    <span id="user"></span>
-    <a onclick="window.location='index.html'"> <h1> KIT DEMO - Link Car</h1> </a>
-    <form role="form" id="kit-codes-form">
-      <span class="none">
-        <label>Dealer:</label>
-        <select id="dealer" class="form-control"  name="dealer" data-type="kit-dealers">
-        </select>
+    <div class="header">
+      <span id="user"></span>
+    </div>
+    <div class="header2">
+      <h1> KIT DEMO</h1>
+    </div>
+    <div class="container">
+      <form role="form" id="kit-codes-form">
+        <span class="none">
+          <label>Dealer:</label>
+          <select id="dealer" class="form-control"  name="dealer" data-type="kit-dealers">
+          </select>
+          <br/>
+        </span>
+        <span class="label">VIN:</span>
+        <input id="vin" class="form-control" name="vin" data-type="text" type="text">
+        <input type="button" onClick ="scanBarcode()" value ="Scan VIN" />
         <br/>
-      </span>
-      <span class="label">VIN:</span>
-      <input id="vin" class="form-control" name="vin" data-type="text" type="text">
-      <input type="button" onClick ="scanBarcode()" value ="Scan VIN" />
-      <br/>
-      <span class="label">Assign to:</span>
-      <label>Kit code: </label>
-      <input id="kit-code" class="form-control" name="kit-code" data-type="text" type="text">
-      <br/>
-      <button class="btn btn-primary btn-lg" id="btn-submit" type="submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Submitting...">Submit</button>
-      <!--input type="button" onClick ="saveResults()" value ="Submit" /-->
-      <div id="fg-errors" class="form-group"></div>
-    </form>
+        <span class="label">Assign to:</span>
+        <label>Kit code: </label>
+        <input id="kit-code" class="form-control" name="kit-code" data-type="text" type="text">
+        <br/>
+        <button class="btn btn-primary btn-lg" id="btn-submit" type="submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Submitting...">Submit</button>
+        <div id="fg-errors" class="form-group"></div>
+      </form>
+    </div>
+    <div class="footer-menu">
+      <div class="menu-button" id="dealer-btn" onClick ="window.location='menu.html'"></div>
+      <div class="menu-button" id="home-btn" onclick="window.location='index.html'"></div>
+      <div class="menu-button" id="user-btn" onclick="window.location='login.html'"></div>
+    </div>
   </div>
 </body>
 

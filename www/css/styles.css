@@ -15,9 +15,41 @@ body {
 }
 
 .body {
-  padding: 1em;
   -webkit-user-select: none; /* Chrome, Safari, and Opera */
   -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
+
+.header {
+  padding: .5em;
+  background-color: red;
+  color: white;
+  text-align: right;
+  border-bottom: solid 2px white;
+}
+.header2 {
+  padding: .5em;
+  background-color: black;
+  color: white;
+  text-align: left;
+  border-bottom: solid 2px white;
+}
+
+.container {
+  padding: 1em;
+  padding-bottom: 3em;
+}
+
+.footer-menu {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;  
+  z-index: 10;
+  height: 3em;
+  line-height: 3em;
 }
 
 .label {
@@ -27,6 +59,47 @@ body {
   font-size: 1em;
 }
 
+.center {
+  text-align: center;
+  margin: auto;
+  display: block;
+}
 .none {
   display: none !important;
+}
+
+h1 {
+  background-color: black;
+  color: white;
+  margin: 0em;
+  text-align: left;
+}
+
+.menu-button {
+  display: inline-block;
+  width: auto;
+  min-width: 30%;
+  height: 100%;
+  /* border-right: white solid 1px;
+  border-left: white solid 1px; */
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: invert(100%);
+}
+
+#home-btn {
+  background-image: url("../css/assets/iconfinder_multimedia-17_2849819.png");
+
+}
+#user-btn {
+  background-image: url("../css/assets/iconfinder_multimedia-05_2849831.png");
+}
+
+#dealer-btn {
+  background-image: url("../css/assets/iconfinder_car_2639905.png");
+}
+
+#contact-btn {
+  background-image: url("../css/assets/iconfinder_multimedia-02_2849834.png");
 }

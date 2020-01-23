@@ -16,15 +16,25 @@
 
 <body>
   <div class="body">
-    <span id="user"></span>
-    <a onclick="window.location='index.html'"> <h1> KIT DEMO</h1> </a>
-    <input type="button" onClick ="window.location='linkCar.html'" value ="Link Car" />
-    <input type="button" onClick ="window.location='listUsers.html'" value ="List Users" />
-    <input type="button" onClick ="window.location='newDealer.html'" value ="New Dealer" />
-    <input type="button" onClick ="window.location='listCodes.html'" value ="List Codes" />
-    <input type="button" onClick ="window.location='login.html'" value ="User Info / Log Out" />
+    <div class="header">
+      <span id="user"></span>
+    </div>
+    <div class="header2">
+      <h1> KIT DEMO</h1>
+    </div>
+    <div class="container">
+      <input type="button" onClick ="window.location='linkCar.html'" value ="Link Car" />
+      <input type="button" onClick ="window.location='listCodes.html'" value ="List Codes" />
+      <input type="button" onClick ="window.location='listUsers.html'" value ="List Users" />
+      <input type="button" onClick ="window.location='newDealer.html'" value ="New Dealer" />
+    </div>
+    <div class="footer-menu">
+      <div class="menu-button" id="dealer-btn" onClick ="window.location='menu.html'"></div>
+      <div class="menu-button" id="home-btn" onclick="window.location='index.html'"></div>
+      <div class="menu-button" id="user-btn" onclick="window.location='login.html'"></div>
+    </div>
   </div>
-
 </body>
+
 
 </html>

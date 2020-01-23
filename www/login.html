@@ -18,31 +18,39 @@
 
 <body>
   <div class="body">
-    <span id="user"></span>
-    <a onclick="window.location='index.html'"> <h1>KIT DEMO</h1></a>
-    <div id="loggedOut">
-      <h2>Log In</h2>
-      <label>Dealer ID</label>
-      <input id="dealerID" class="form-control" name="dealerID" data-type="text" type="text"></input>
-      <label>Password</label>
-      <input id="dealerPass" class="form-control" name="dealerPass" data-type="text" type="password"></input>
-      <button onclick="getUser()">Log In</button>
-      <span id="loginError"></span>
+    <div class="header">
+      <span id="user"></span>
     </div>
-    <div id="loggedIn">
-      <h2>User Info</h2>
-      <label>Name</label>
-      <input id="dealerName" disabled="true" class="form-control" name="dealerID" type="text"></input>
-      <label>Dealer Link</label>
-      <input id="dealerLink" disabled="true" class="form-control" name="dealerID" type="text"></input>
-      <label>Email</label>
-      <input id="dealerEmail" disabled="true" class="form-control" name="dealerID" type="text"></input>
-      <button onclick="logOut()">Log Out</button>
+    <div class="header2">
+      <h1> KIT DEMO</h1>
     </div>
-    
-
+    <div class="container">
+      <div id="loggedOut">
+        <h2>Log In</h2>
+        <label>Dealer ID</label>
+        <input id="dealerID" class="form-control" name="dealerID" data-type="text" type="text"></input>
+        <label>Password</label>
+        <input id="dealerPass" class="form-control" name="dealerPass" data-type="text" type="password"></input>
+        <button onclick="getUser()">Log In</button>
+        <span id="loginError"></span>
+      </div>
+      <div id="loggedIn">
+        <h2>User Info</h2>
+        <label>Name</label>
+        <input id="dealerName" disabled="true" class="form-control" name="dealerID" type="text"></input>
+        <label>Dealer Link</label>
+        <input id="dealerLink" disabled="true" class="form-control" name="dealerID" type="text"></input>
+        <label>Email</label>
+        <input id="dealerEmail" disabled="true" class="form-control" name="dealerID" type="text"></input>
+        <button onclick="logOut()">Log Out</button>
+      </div>
+    </div>
+    <div class="footer-menu">
+      <div class="menu-button" id="contact-btn" onClick ="window.location='contact.html'"></div>
+      <div class="menu-button" id="home-btn" onclick="window.location='index.html'"></div>
+      <div class="menu-button" id="user-btn" onclick="window.location='login.html'"></div>
+    </div>
   </div>
-</div>
 </body>
 
 <script>
