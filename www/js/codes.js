@@ -148,7 +148,8 @@ $(function () {
         $.ajax(ajaxSettings)
         .done(function (response) {
           // replaces form with a thank you message, please replace with your own functionality
-          $("#kit-codes-form").replaceWith("<div class='thank-you'>"+successMessage+"</div>");
+          var successFinish = "<div>" + successMessage + "<br><input type=\"button\" onClick =\"window.location='linkCar.html'\" value =\"Link Another Car\"/></div>";
+          $("#kit-codes-form").replaceWith(successFinish);
         })
         .fail(function (response) {
           $("#btn-submit").button("reset");
