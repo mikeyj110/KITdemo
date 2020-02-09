@@ -26,7 +26,7 @@
       <h1> KIT DEMO</h1>
     </div>
     <div class="container">
-      <div id="adminOnly">
+      <div id="adminOnly" class="none">
         <input type="button" onClick ="window.location='adminTools.html'" value ="Admin Tools" />
       </div>
       <br><br><br><br><br>
@@ -41,11 +41,6 @@
 
 </body>
 
-<script>
-  var adminOnly = document.getElementById("adminOnly");
-  if (localStorage.getItem("accountLevel") !== "Admin") {
-    adminOnly.classList.add("none");
-  } else {};
-</script>
+<script src="js/adminCheck.js"></script>
 
 </html>
