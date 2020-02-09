@@ -76,7 +76,14 @@ $(function () {
 
   function postForm() {
     // set Dealer ID
-    document.getElementById("dealer").value = localStorage.getItem("accountBaseID");
+    if (localStorage.getItem("accountLevel") == "Admin"){
+      // Do Nothing
+    }
+    else {
+      //Set Dealer Field to User
+      document.getElementById("dealer").value = localStorage.getItem("accountBaseID");
+    };
+    
 
     // clear errors
     $("#kit-codes-form .has-error").removeClass("has-error");
