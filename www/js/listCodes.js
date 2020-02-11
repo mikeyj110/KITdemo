@@ -18,9 +18,10 @@ function getData() {
       console.log(response);
       $.each( response, function( key, value ) {
         var dealerLink = value.dealer[0]["dealer-link"] + value["kit-code"];
+        var onclick = "onclick=\"window.open('" + dealerLink + "', '_system', 'location=yes')\" ";
+        console.log(onclick);
+        document.getElementById("content").innerHTML += "<a href='#' "+ onclick + "> <li>" + "KIT Code: " + value["kit-code"] + " | VIN: " + value.vin + "</li></a><br>";
         console.log(dealerLink);
-        document.getElementById("content").innerHTML += "<a href='" + dealerLink + "'> <li>" + "KIT Code: " + value["kit-code"] + " | VIN: " + value.vin + "</li></a><br>";
-        // console.log(value.dealer[0]["dealer-name"]);
       });
     } else {
       document.getElementById("content").innerHTML += noResults; 
