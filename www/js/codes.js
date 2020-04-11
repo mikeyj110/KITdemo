@@ -154,9 +154,9 @@ $(function () {
        ajaxSettings.data = JSON.stringify(formObj);
         $.ajax(ajaxSettings)
         .done(function (response) {
-          // replaces form with a thank you message, please replace with your own functionality
-          var successFinish = "<div>" + successMessage + "<br><input type=\"button\" onClick =\"window.location='linkCar.html'\" value =\"Link Another Car\"/></div>";
-          $("#kit-codes-form").replaceWith(successFinish);
+          var successFinish = successMessage;
+          console.log(successFinish);
+          window.location="linkCarSuccess.html";
         })
         .fail(function (response) {
           $("#btn-submit").button("reset");
