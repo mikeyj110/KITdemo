@@ -59,6 +59,10 @@ body {
   font-size: 1em;
 }
 
+.oblique {
+  font-style: oblique;  
+}
+
 .center {
   text-align: center;
   margin: auto;
