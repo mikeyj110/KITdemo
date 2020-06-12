@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" id="com.kit.admintool" version="0.0.5">
-  <name>KIT - Dealer Admin Tool</name>
+<widget xmlns="http://www.w3.org/ns/widgets" id="com.crashapps.karintouch" version="0.0.9">
+  <name>Kar In Touch</name>
   <description>Made with Monaca (http://monaca.mobi)</description>
   <author/>
   <content src="index.html"/>
@@ -46,6 +46,7 @@
     <icon src="/res/ios/icon/icon-83.5@2x~ipad.png" width="167" height="167"/>
     <splash src="/res/ios/screen/Default@2x~universal~anyany.png"/>
     <icon src="/res/ios/icon/icon-1024.png" width="1024" height="1024"/>
+    <preference name="orientation" value="portrait"/>
     <config-file platform="ios" parent="CFBundleLocalizations" target="*-Info.plist">
       <array>
         <string>en</string>
@@ -94,16 +95,16 @@
   <preference name="monaca:MonacaBackendUrl" value="https://cloud.monaca.mobi/json-rpc/"/>
   <preference name="monaca:MonacaBackendId" value="5e13d074e788854e5500a999"/>
   <preference name="monaca:MonacaBackendApiKey" value="7f01350b98d5d4a87b3834ab339773e6c7bdf970da945de837d8b42b0beede30"/>
+  <preference name="KeepRunning" value="true"/>
+  <preference name="monaca:AndroidIsPackageNameSeparate" value="false"/>
+  <preference name="Orientation" value="portrait"/>
+  <preference name="SplashScreenDelay" value="1000"/>
+  <preference name="Fullscreen" value="true"/>
   <preference name="ios-XCBuildConfiguration-TARGETED_DEVICE_FAMILY" value="1,2"/>
   <preference name="AutoHideSplashScreen" value="true"/>
   <preference name="FadeSplashScreen" value="true"/>
   <preference name="ShowSplashScreenSpinner" value="false"/>
-  <preference name="EnableViewportScale" value="false"/>
   <access origin="*"/>
-  <preference name="KeepRunning" value="true"/>
-  <preference name="monaca:AndroidIsPackageNameSeparate" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
-  <preference name="Orientation" value="portrait"/>
-  <preference name="SplashScreenDelay" value="1000"/>
-  <preference name="Fullscreen" value="false"/>
+  <preference name="EnableViewportScale" value="false"/>
 </widget>
