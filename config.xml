@@ -76,7 +76,7 @@
     <preference name="ShowSplashScreen" value="false"/>
   </platform>
   <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
-    <string>Camera access is needed to scan barcodes</string>
+    <string>Camera access is needed solely to scan barcodes.  No pictures/recordings will be saved.  This feature is optional, and VIN information is able to be manually typed in if you so choose.</string>
   </edit-config>
   <edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge">
     <string>need to photo library access to get pictures from there</string>
@@ -86,9 +86,6 @@
   </edit-config>
   <edit-config target="NSPhotoLibraryAddUsageDescription" file="*-Info.plist" mode="merge">
     <string>need to photo library access to save pictures there</string>
-  </edit-config>
-  <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
-    <string>Camera access is needed to scan barcodes</string>
   </edit-config>
   <preference name="WindowsStorePublisherName" value="My Name"/>
   <preference name="WindowsStoreIdentityName" value="9c340f3d-4fe7-88bb-7995-f144b4499f73"/>
