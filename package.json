@@ -1,7 +1,7 @@
 {
-    "name": "onsenui-v2-todo",
-    "version": "2.0.4",
-    "displayName": "OnsenUI TODO App",
+    "name": "Kar In Touch",
+    "version": "0.0.9",
+    "displayName": "Kar In Touch",
     "cordova": {
         "plugins": {
             "cordova-custom-config": {},
